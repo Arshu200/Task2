@@ -1,12 +1,19 @@
 pipeline {
     agent any
+    stages { // All stages must be enclosed within 'stages'
+        stage('Build') {
+            steps {
+                echo "Building the project..."
+                // Add build steps here (e.g., compile, test)
+            }
+        }
         stage('Deploy to Staging') {
             when {
-                branch 'develop'
+                branch 'dev'  // Use 'dev' for your development branch
             }
             steps {
                 echo "Deploying to Staging environment..."
-                // Add deployment steps for staging (e.g., AWS CLI or Terraform commands)
+                // Add deployment steps for staging
             }
         }
         stage('Deploy to Production') {
@@ -18,10 +25,11 @@ pipeline {
                 // Add deployment steps for production
             }
         }
+    }
     post {
         always {
             echo 'Cleaning up...'
-            // Cleanup steps (optional)
+            // Add any necessary cleanup steps here
         }
         success {
             echo 'Pipeline completed successfully.'
