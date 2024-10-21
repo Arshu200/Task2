@@ -16,7 +16,7 @@ pipeline {
                 // Add deployment steps for staging
                 sh '''
                     echo "Printing the contents of file1.txt:"
-                    cat file1.txt
+                    cat File1.txt
                 '''
             }
         }
@@ -29,7 +29,7 @@ pipeline {
                 // Add deployment steps for production
                 sh '''
                     echo "Printing the contents of file1.txt:"
-                    cat file1.txt
+                    cat File1.txt
                 '''
             }
         }
