@@ -14,6 +14,10 @@ pipeline {
             steps {
                 echo "Deploying to Staging environment..."
                 // Add deployment steps for staging
+                sh '''
+                    echo "Printing the contents of file1.txt:"
+                    cat file1.txt
+                '''
             }
         }
         stage('Deploy to Production') {
@@ -23,6 +27,10 @@ pipeline {
             steps {
                 echo "Deploying to Production environment..."
                 // Add deployment steps for production
+                sh '''
+                    echo "Printing the contents of file1.txt:"
+                    cat file1.txt
+                '''
             }
         }
     }
